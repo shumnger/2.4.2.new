@@ -5,6 +5,7 @@ import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 import java.util.List;
 
 @Repository
@@ -40,5 +41,12 @@ public class userDaoImpl implements userDao {
     @Override
     public List<User> getAllUsers() {
         return entityManager.createQuery("from User", User.class).getResultList();
+    }
+
+    @Override
+    public User getUserByName(String username) {
+        TypedQuery<User> query = entityManager.createQuery("select u from User u where u.username=:username",
+                User.class).setParameter("username", username);
+        return query.getSingleResult();
     }
 }
