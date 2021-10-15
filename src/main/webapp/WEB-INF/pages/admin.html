@@ -51,7 +51,7 @@
   <br/>
   <br/>
   <h2>Users</h2>
-  <h3><a href="/admin/new.html">Add new User</a></h3>
+  <h3><a href="/admin/new">Add new User</a></h3>
   <table border="1" cellpadding="5">
     <tr>
       <th>ID</th>
@@ -66,8 +66,8 @@
       <td th:text="${user.username}">NAME</td>
       <td th:text="${user.lastName}">LAST_NAME</td>
       <td th:text="${user.eMail}">EMAIL</td>
-      <td><a th:href="@{/edit/{id}(id=${user.id})}">Edit</a></td>
-      <td><a th:href="@{/remove/{id}(id=${user.id})}">Delete</a></td>
+      <td><a th:href="@{admin/edit/{id}(id=${user.id})}">Edit</a></td>
+      <td><a th:href="@{admin/remove/{id}(id=${user.id})}">Delete</a></td>
     </tr>
   </table>
   <br/>
